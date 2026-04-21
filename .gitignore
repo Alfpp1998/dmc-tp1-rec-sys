@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Local notebook outputs and caches
+*.log
+
+# Raw and processed datasets
+data/imdb/
+data/mov_lens/
+data/processed/
+
+# Keep folder structure docs if needed
+!data/.gitkeep
+!data/processed/.gitkeep
+
+# Generated model artifacts
+models/
+!models/.gitkeep
+
+# Generated reports
+reports/figures/
+reports/tables/
+
+# Keep presentation markdowns
+!reports/presentation/
+!reports/presentation/*.md
+
+# Optional exported assets inside presentation can be ignored
+reports/presentation/*.pdf
+reports/presentation/*.pptx
+reports/presentation/*.key
+
