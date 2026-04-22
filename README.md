@@ -1,8 +1,24 @@
 # dmc-tp1-rec-sys
 
-Sistema de recomendación construido sobre `MovieLens 32M` enriquecido con metadatos de `IMDb`.
+Sistema de recomendacion construido sobre `MovieLens 32M` enriquecido con metadatos de `IMDb`.
 
-El repositorio contiene notebooks para análisis exploratorio, preprocesamiento, modelado y evaluación, además de utilidades compartidas para carga, limpieza, cache y generación de artefactos.
+El repositorio contiene notebooks para análisis exploratorio, preprocesamiento, modelado y evaluacion, además de utilidades compartidas para carga, limpieza, cache y generación de artefactos.
+
+## Objetivo del proyecto
+
+El objetivo del proyecto es construir y documentar un sistema de recomendación de películas capaz de combinar señales de comportamiento de usuarios con atributos de contenido. A partir de interacciones históricas de `MovieLens 32M` y metadatos enriquecidos de `IMDb`, el repositorio implementa un flujo completo de análisis, preprocesamiento, modelado y evaluación.
+
+## Problema de negocio a resolver
+
+El problema abordado es la dificultad de conectar a cada usuario con contenido relevante dentro de un catálogo amplio, heterogéneo y altamente disperso. En un escenario con decenas de miles de películas y millones de interacciones, una plataforma no puede depender únicamente de rankings globales o exploración manual.
+
+Desde la perspectiva de negocio, un sistema de recomendación permite:
+
+- mejorar el descubrimiento de contenido relevante
+- reducir la fricción de búsqueda dentro del catálogo
+- aumentar la personalización de la experiencia
+- aprovechar señales históricas y metadatos para mitigar problemas de sparsity y cold-start
+- comparar estrategias de recomendación con métricas reproducibles
 
 ## Documentación
 
@@ -54,7 +70,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Si se quiere registrar el entorno en Jupyter:
+Si se quiere registrar el entorno en Jupyter de forma automatica:
 
 ```bash
 python -m ipykernel install --user --name dmc-env --display-name "Python (dmc-env)"
@@ -72,7 +88,7 @@ Fuentes oficiales:
 - IMDb: <https://datasets.imdbws.com/>
 - MovieLens 32M: <https://grouplens.org/datasets/movielens/32m/>
 
-Archivos utilizados:
+Archivos utilizados (obtencion manual requerida):
 
 - `data/mov_lens/ratings.csv`
 - `data/mov_lens/movies.csv`
@@ -90,14 +106,14 @@ Archivos utilizados:
 
 El flujo implementado en la branch actual es:
 
-1. [01_eda_ratings_and_catalog.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/01_eda_ratings_and_catalog.ipynb)
-2. [02_eda_content_enrichment_imdb.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/02_eda_content_enrichment_imdb.ipynb)
-3. [03_preprocessing_interactions.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/03_preprocessing_interactions.ipynb)
-4. [04_preprocessing_content_features.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/04_preprocessing_content_features.ipynb)
-5. [05a_model_cf_item_user.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/05a_model_cf_item_user.ipynb)
-6. [05b_model_bandit_offline.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/05b_model_bandit_offline.ipynb)
-7. [05c_model_hybrid.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/05c_model_hybrid.ipynb)
-8. [06_evaluation_and_error_analysis.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/06_evaluation_and_error_analysis.ipynb)
+1. [01_eda_ratings_and_catalog.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/01_eda_ratings_and_catalog.ipynb) - Analisis exploratorio de interacciones
+2. [02_eda_content_enrichment_imdb.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/02_eda_content_enrichment_imdb.ipynb) - Enriquecimiento con metadatos de IMDb
+3. [03_preprocessing_interactions.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/03_preprocessing_interactions.ipynb) - Limpieza, filtrado y particion temporal de interacciones
+4. [04_preprocessing_content_features.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/04_preprocessing_content_features.ipynb) - Construccion de tabla maestra de items y features de contenido
+5. [05a_model_cf_item_user.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/05a_model_cf_item_user.ipynb) - Baseline colaborativo item-based con item-kNN
+6. [05b_model_bandit_offline.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/05b_model_bandit_offline.ipynb) - Experimento comparativo de bandit offline
+7. [05c_model_hybrid.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/05c_model_hybrid.ipynb) - Modelo hibrido que combina score colaborativo y contenido
+8. [06_evaluation_and_error_analysis.ipynb](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/notebooks/06_evaluation_and_error_analysis.ipynb) - Consolidacion de metricas y analisis final de resultados
 
 ## Artefactos generados
 
@@ -129,8 +145,6 @@ El repositorio ignora:
 
 - datasets locales
 - `data/processed/`
-- `models/`
-- `reports/figures/`
 - `reports/tables/`
 - `__pycache__/`
 - `.ipynb_checkpoints/`

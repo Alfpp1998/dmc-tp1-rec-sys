@@ -1,8 +1,8 @@
-# Documentación de Notebooks y Estructura de Datos
+# Documentacion de Notebooks y Estructura de Datos
 
-## 1. Propósito del documento
+## 1. Proposito del documento
 
-Este documento describe la estructura actual del proyecto, los datasets utilizados, la organización esperada de carpetas y la función de cada notebook implementado en `notebooks/`.
+Este documento describe la estructura actual del proyecto, los datasets utilizados, la organizacion esperada de carpetas y la funcion de cada notebook implementado en `notebooks/`.
 
 ## 2. Descarga de datasets
 
@@ -98,11 +98,11 @@ dmc-tp1-rec-sys/
 └── requirements.txt
 ```
 
-## 5. Entorno mínimo
+## 5. Entorno minimo
 
-El proyecto utiliza el archivo `requirements.txt` para instalar las dependencias mínimas.
+El proyecto utiliza el archivo `requirements.txt` para instalar las dependencias minimas.
 
-Inicialización sugerida del entorno:
+Inicializacion sugerida del entorno:
 
 ```bash
 python3 -m venv .venv
@@ -125,18 +125,18 @@ Paquetes incluidos:
 
 ## 6. Utilidades compartidas
 
-El archivo [src/utils/recsys_utils.py](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/src/utils/recsys_utils.py) centraliza la lógica compartida del proyecto.
+El archivo [src/utils/recsys_utils.py](/Users/chperezpelaez/Documents/Github/dmc-tp1-rec-sys/src/utils/recsys_utils.py) centraliza la logica compartida del proyecto.
 
 Funciones principales documentadas en el flujo actual:
 
 - carga de tablas IMDb y MovieLens
 - limpieza y tipado de columnas
-- construcción del join enriquecido entre MovieLens e IMDb
-- preparación de interacciones
+- construccion del join enriquecido entre MovieLens e IMDb
+- preparacion de interacciones
 - splits temporales
-- construcción de features de contenido
+- construccion de features de contenido
 - entrenamiento base de item-kNN
-- métricas de evaluación
+- metricas de evaluacion
 
 También se incluyeron logs visibles en consola para que la carga y limpieza de tablas grandes muestre progreso.
 
@@ -178,7 +178,7 @@ Uso:
 
 ### `01_eda_ratings_and_catalog.ipynb`
 
-Función:
+Funcion:
 
 - análisis exploratorio sobre ratings, catálogo base, tags y links de MovieLens
 
@@ -210,7 +210,7 @@ Artefactos esperados:
 
 ### `02_eda_content_enrichment_imdb.ipynb`
 
-Función:
+Funcion:
 
 - análisis exploratorio del enriquecimiento de contenido con IMDb y de la cobertura del join MovieLens-IMDb
 
@@ -227,7 +227,7 @@ Dependencia de utilidades:
 Outputs principales:
 
 - cobertura del join
-- distribución de tipos, duración y año
+- distribucion de tipos, duracion y año
 - análisis de géneros y señales de personas
 
 Artefactos esperados:
@@ -240,9 +240,9 @@ Artefactos esperados:
 
 ### `03_preprocessing_interactions.ipynb`
 
-Función:
+Funcion:
 
-- preparación de interacciones para entrenamiento y evaluación
+- preparacion de interacciones para entrenamiento y evaluacion
 
 Inputs:
 
@@ -255,8 +255,8 @@ Dependencia de utilidades:
 
 Procesamiento documentado:
 
-- construcción de interacciones limpias
-- filtrado mínimo por actividad
+- construccion de interacciones limpias
+- filtrado minimo por actividad
 - split temporal
 - mapeos `userId -> user_idx`
 - mapeos `movieId -> item_idx`
@@ -275,9 +275,9 @@ Artefactos esperados:
 
 ### `04_preprocessing_content_features.ipynb`
 
-Función:
+Funcion:
 
-- construcción de tabla maestra de ítems y de features de contenido para modelos híbridos y para deep learning
+- construccion de tabla maestra de items y de features de contenido para modelos hibridos y para deep learning
 
 Inputs:
 
@@ -293,11 +293,11 @@ Dependencia de utilidades:
 
 Procesamiento documentado:
 
-- construcción de `items_master`
-- variables numéricas
-- codificación de géneros
-- codificación de `titleType`
-- representación de tags con TF-IDF
+- construccion de `items_master`
+- variables numericas
+- codificacion de géneros
+- codificacion de `titleType`
+- representacion de tags con TF-IDF
 - features de directores y principals frecuentes
 
 Artefactos esperados:
@@ -308,7 +308,7 @@ Artefactos esperados:
 
 ### `05a_model_cf_item_user.ipynb`
 
-Función:
+Funcion:
 
 - entrenamiento de un baseline colaborativo item-based con item-kNN
 
@@ -321,11 +321,11 @@ Inputs:
 
 Procesamiento documentado:
 
-- reducción a un subconjunto denso para prototipado
-- remapeo local de usuarios e ítems
+- reduccion a un subconjunto denso para prototipado
+- remapeo local de usuarios e items
 - entrenamiento item-kNN
-- generación de recomendaciones top-N
-- evaluación sobre test
+- generacion de recomendaciones top-N
+- evaluacion sobre test
 
 Artefactos esperados:
 
@@ -356,9 +356,9 @@ Artefactos esperados:
 
 ### `05c_model_hybrid.ipynb`
 
-Función:
+Funcion:
 
-- combinación de score colaborativo y score de contenido
+- combinacion de score colaborativo y score de contenido
 
 Inputs:
 
@@ -368,11 +368,11 @@ Inputs:
 
 Procesamiento documentado:
 
-- construcción de subconjunto comparable con CF
+- construccion de subconjunto comparable con CF
 - entrenamiento de item-kNN
 - similitud coseno sobre features de contenido
-- score híbrido final
-- evaluación sobre test
+- score hibrido final
+- evaluacion sobre test
 
 Artefactos esperados:
 
@@ -381,21 +381,21 @@ Artefactos esperados:
 
 ### `06_evaluation_and_error_analysis.ipynb`
 
-Función:
+Funcion:
 
-- consolidación de métricas y revisión final de resultados guardados por notebooks previos
+- consolidacion de metricas y revision final de resultados guardados por notebooks previos
 
 Inputs:
 
-- métricas generadas por notebooks `05a`, `05b` y `05c`
+- metricas generadas por notebooks `05a`, `05b` y `05c`
 - recomendaciones guardadas en `models/`
 - interacciones procesadas
 
 Procesamiento documentado:
 
-- consolidación de métricas
-- segmentación de usuarios e ítems
-- inspección cualitativa de recomendaciones
+- consolidacion de metricas
+- segmentacion de usuarios e items
+- inspeccion cualitativa de recomendaciones
 - persistencia de conclusiones resumidas
 
 Artefactos esperados:
