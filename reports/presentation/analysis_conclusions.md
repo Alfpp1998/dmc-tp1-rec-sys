@@ -1,8 +1,8 @@
-# Conclusiones del Análisis del Sistema de Recomendación
+# Conclusiones del Análisis del Sistema de Recomendacion
 
 ## 1. Resumen ejecutivo
 
-El análisis realizado sobre `MovieLens 32M` enriquecido con metadatos de `IMDb` muestra que el problema de recomendación tiene una matriz usuario-item extremadamente dispersa, pero al mismo tiempo dispone de una cobertura muy alta de metadatos de contenido. En consecuencia, el uso de señales colaborativas por sí solo resulta útil como baseline, mientras que la incorporación de features de contenido mejora el desempeño del sistema y amplía la capacidad de generalización sobre el catálogo.
+El análisis realizado sobre `MovieLens 32M` enriquecido con metadatos de `IMDb` muestra que el problema de recomendación tiene una matriz usuario-item extremadamente dispersa, pero al mismo tiempo dispone de una cobertura muy alta de metadatos de contenido. En consecuencia, el uso de señales colaborativas por sí solo resulta útil como baseline, mientras que la incorporación de features de contenido mejora el desempeño del sistema y amplia la capacidad de generalización sobre el catálogo.
 
 Los resultados obtenidos indican que el modelo híbrido supera al baseline colaborativo en las métricas de ranking evaluadas y constituye el mejor resultado observado dentro del conjunto de notebooks implementados.
 
@@ -73,9 +73,9 @@ Según `reports/tables/imdb_feature_quality.csv` y `reports/tables/item_feature_
 
 Interpretación:
 
-- la calidad del enriquecimiento es alta
-- los metadatos de IMDb no sólo completan el catálogo, sino que ofrecen señales estructuradas muy consistentes
-- el sistema dispone de una base sólida para construir representaciones de contenido
+- la calidad del enriquecimiento es muy alta
+- los metadatos de IMDb no solo completan el catálogo, sino que ofrecen señales estructuradas muy consistentes
+- el sistema dispone de una base solida para construir representaciones de contenido
 
 ## 4. Hallazgos del preprocesamiento de interacciones
 
@@ -134,7 +134,7 @@ Comparación directa contra CF:
 Lectura:
 
 - el modelo híbrido obtiene mejores métricas en las tres medidas de ranking consideradas
-- también logra evaluar una mayor cantidad de usuarios dentro del esquema aplicado
+- tambien logra evaluar una mayor cantidad de usuarios dentro del esquema aplicado
 - el enriquecimiento de contenido aporta valor observable sobre el baseline colaborativo
 
 ### Experimento bandit offline
@@ -160,7 +160,7 @@ Lectura:
 
 1. El problema presenta una matriz de interacción extremadamente dispersa, con fuerte cola larga en los ítems.
 2. La conexión entre MovieLens e IMDb ofrece una cobertura casi completa y metadatos muy consistentes.
-3. El enriquecimiento de contenido queda bien sustentado por la disponibilidad de géneros, ratings, duración, directores, guionistas y cast principal.
+3. El enriquecimiento de contenido queda bien sustentado por la disponibilidad de géneros, ratings, duracion, directores, guionistas y cast principal.
 4. El baseline colaborativo item-based funciona como referencia válida, pero no es el mejor resultado observado.
 5. El modelo híbrido muestra la mejor performance dentro de los resultados guardados, con mejoras en `Precision@10`, `Recall@10` y `NDCG@10`.
 6. El experimento bandit aporta una comparación complementaria, pero no reemplaza la evaluación principal del sistema recomendador.

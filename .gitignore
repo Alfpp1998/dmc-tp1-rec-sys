@@ -29,11 +29,11 @@ data/processed/
 !data/processed/.gitkeep
 
 # Generated model artifacts
-models/
+!models/
 !models/.gitkeep
 
 # Generated reports
-reports/figures/
+!reports/figures/
 reports/tables/
 
 # Keep presentation markdowns
